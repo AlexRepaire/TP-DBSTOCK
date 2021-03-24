@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24 mars 2021 ? 15:09:08 by Hibernate Tools 4.0.1.Final -->
+<hibernate-mapping>
+    <class name="persistance.entities.Client" table="CLIENT" schema="USERTP">
+        <id name="idclient" type="big_decimal">
+            <column name="IDCLIENT" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="loginclient" type="string">
+            <column name="LOGINCLIENT" length="254" />
+        </property>
+        <property name="motpasseclient" type="string">
+            <column name="MOTPASSECLIENT" length="254" />
+        </property>
+        <property name="nomclient" type="string">
+            <column name="NOMCLIENT" length="254" />
+        </property>
+        <property name="prenomclient" type="string">
+            <column name="PRENOMCLIENT" length="254" />
+        </property>
+        <property name="civiliteclient" type="string">
+            <column name="CIVILITECLIENT" length="254" />
+        </property>
+        <property name="datenaissanceclient" type="string">
+            <column name="DATENAISSANCECLIENT" length="254" />
+        </property>
+        <property name="numeroadrclient" type="string">
+            <column name="NUMEROADRCLIENT" length="254" />
+        </property>
+        <property name="rueadrclient" type="string">
+            <column name="RUEADRCLIENT" length="254" />
+        </property>
+        <property name="communeadrclient" type="string">
+            <column name="COMMUNEADRCLIENT" length="254" />
+        </property>
+        <property name="villeadrclient" type="string">
+            <column name="VILLEADRCLIENT" length="254" />
+        </property>
+        <property name="cpadrclient" type="string">
+            <column name="CPADRCLIENT" length="254" />
+        </property>
+        <property name="telclient" type="string">
+            <column name="TELCLIENT" length="254" />
+        </property>
+        <property name="faxclient" type="string">
+            <column name="FAXCLIENT" length="254" />
+        </property>
+        <property name="gsmclient" type="string">
+            <column name="GSMCLIENT" length="254" />
+        </property>
+        <property name="emailclient" type="string">
+            <column name="EMAILCLIENT" length="254" />
+        </property>
+        <set name="commandes" table="COMMANDE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDCLIENT" precision="22" scale="0" />
+            </key>
+            <one-to-many class="persistance.entities.Commande" />
+        </set>
+    </class>
+</hibernate-mapping>

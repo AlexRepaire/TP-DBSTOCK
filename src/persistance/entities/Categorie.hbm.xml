@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24 mars 2021 ? 15:09:08 by Hibernate Tools 4.0.1.Final -->
+<hibernate-mapping>
+    <class name="persistance.entities.Categorie" table="CATEGORIE" schema="USERTP">
+        <id name="idcateg" type="short">
+            <column name="IDCATEG" precision="4" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="codecateg" type="string">
+            <column name="CODECATEG" length="254" />
+        </property>
+        <property name="libellecateg" type="string">
+            <column name="LIBELLECATEG" length="254" />
+        </property>
+        <set name="produits" table="PRODUIT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDCATEGORIE" precision="4" scale="0" />
+            </key>
+            <one-to-many class="persistance.entities.Produit" />
+        </set>
+    </class>
+</hibernate-mapping>

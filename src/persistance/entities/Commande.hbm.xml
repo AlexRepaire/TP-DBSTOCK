@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24 mars 2021 ? 15:09:08 by Hibernate Tools 4.0.1.Final -->
+<hibernate-mapping>
+    <class name="persistance.entities.Commande" table="COMMANDE" schema="USERTP">
+        <composite-id name="id" class="persistance.entities.CommandeId">
+            <key-property name="idproduit" type="short">
+                <column name="IDPRODUIT" precision="4" scale="0" />
+            </key-property>
+            <key-property name="idclient" type="big_decimal">
+                <column name="IDCLIENT" precision="22" scale="0" />
+            </key-property>
+            <key-property name="qtecommande" type="java.lang.Short">
+                <column name="QTECOMMANDE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="datecommande" type="date">
+                <column name="DATECOMMANDE" length="7" />
+            </key-property>
+            <key-property name="etatcommande" type="java.lang.Short">
+                <column name="ETATCOMMANDE" precision="4" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="client" class="persistance.entities.Client" update="false" insert="false" fetch="select">
+            <column name="IDCLIENT" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="produit" class="persistance.entities.Produit" update="false" insert="false" fetch="select">
+            <column name="IDPRODUIT" precision="4" scale="0" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
