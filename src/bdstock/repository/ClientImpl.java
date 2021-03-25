@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
-import bdstock.dao.IClientDao;
 import bdstock.dao.InterfaceDao;
 import persistance.HibernateUtil;
 import persistance.entities.Client;
